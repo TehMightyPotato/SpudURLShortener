@@ -10,7 +10,8 @@ if (!$mysqli) {
 }
 
 
-function getRows($mysqli ,$longURL){
+function getRows($mysqli, $longURL)
+{
   $stmt = $mysqli->prepare("SELECT * FROM urls WHERE LongURL = ?");
   $stmt->bind_param("s", $longURL);
   $stmt->execute();
@@ -23,4 +24,3 @@ $res = getRows($mysqli, $url);
 
 print json_encode($res);
 die();
-?>
